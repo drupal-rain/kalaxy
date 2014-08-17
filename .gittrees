@@ -235,3 +235,7 @@
 	url = https://github.com/drupalprojects/media_browser_plus.git
 	path = modules/common/media_browser_plus
 	branch = 7.x-3.x
+[subtree "modules/common/multiform"]
+	url = https://github.com/drupalprojects/multiform.git
+	path = modules/common/multiform
+	branch = 7.x-1.1
