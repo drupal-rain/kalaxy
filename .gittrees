@@ -26,6 +26,11 @@
 	path = modules/base/entity
 	branch = 7.x-1.5
 
+[subtree "modules/base/entitycache"]
+	url = https://github.com/drupalprojects/entitycache.git
+	path = modules/base/entitycache
+	branch = 7.x-1.x
+
 ###############################################################################
 # modules/common
 
@@ -72,5 +77,3 @@
 	url = https://github.com/drupalprojects/schema.git
 	path = modules/dev/schema
 	branch = 7.x-1.x
-
-
