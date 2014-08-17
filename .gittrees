@@ -215,3 +215,7 @@
 	url = https://github.com/drupalprojects/multiupload_imagefield_widget.git
 	path = modules/common/multiupload_imagefield_widget
 	branch = 7.x-1.3
+[subtree "modules/common/entityreference_autocomplete"]
+	url = https://github.com/drupalprojects/entityreference_autocomplete.git
+	path = modules/common/entityreference_autocomplete
+	branch = 7.x-1.5
