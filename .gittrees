@@ -151,3 +151,7 @@
 	url = https://github.com/drupalprojects/relation.git
 	path = modules/base/relation
 	branch = 7.x-1.x
+[subtree "modules/base/rules"]
+	url = https://github.com/drupalprojects/rules.git
+	path = modules/base/rules
+	branch = 7.x-2.7
