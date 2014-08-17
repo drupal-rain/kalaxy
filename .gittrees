@@ -285,3 +285,7 @@
 	url = https://github.com/drupalprojects/shiny.git
 	path = themes/admin/shiny
 	branch = 7.x-1.x
+[subtree "modules/feature/page"]
+	url = https://github.com/drupal-rain/page.git
+	path = modules/feature/page
+	branch = 7.x-1.x
