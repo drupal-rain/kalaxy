@@ -163,3 +163,7 @@
 	url = https://github.com/drupalprojects/services.git
 	path = modules/base/services
 	branch = 7.x-3.x
+[subtree "modules/base/simplehtmldom"]
+	url = https://github.com/drupalprojects/simplehtmldom.git
+	path = modules/base/simplehtmldom
+	branch = 7.x-2.1
