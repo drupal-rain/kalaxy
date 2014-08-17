@@ -175,3 +175,7 @@
 	url = https://github.com/drupalprojects/token.git
 	path = modules/base/token
 	branch = 7.x-1.5
+[subtree "modules/base/url"]
+	url = https://github.com/drupalprojects/url.git
+	path = modules/base/url
+	branch = 7.x-1.x
