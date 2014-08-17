@@ -25,12 +25,14 @@ Component
 Base modules to construct a website.
 Usually blindly put modules that are over 100k usage in here.
 
-| Module                                              | Branch  |
-| --------------------------------------------------- | ------- |
-| [admin_menu](https://drupal.org/project/admin_menu) | 7.x-3.x |
-| [ctools](https://drupal.org/project/ctools)         | 7.x-1.4 |
-| [ds](https://drupal.org/project/ds)                 | 7.x-2.x |
-| [eck](https://drupal.org/project/eck)               | 7.x-2.x |
+| Module                                                | Branch  |
+| ----------------------------------------------------- | ------- |
+| [admin_menu](https://drupal.org/project/admin_menu)   | 7.x-3.x |
+| [ctools](https://drupal.org/project/ctools)           | 7.x-1.4 |
+| [ds](https://drupal.org/project/ds)                   | 7.x-2.x |
+| [eck](https://drupal.org/project/eck)                 | 7.x-2.x |
+| [entity](https://drupal.org/project/entity)           | 7.x-1.5 |
+| [entitycache](https://drupal.org/project/entitycache) | 7.x-1.x |
 
 
 ## Common
@@ -46,6 +48,7 @@ Feature modules.
 
 ## Dev
 Highly related to developer usage(only).
+
 * [backup_migrate-7.x-3.x](https://drupal.org/project/backup_migrate)
 * [devel-7.x-1.x](https://drupal.org/project/devel)
 * [devel_themer-7.x-1.x](https://drupal.org/project/devel_themer)
