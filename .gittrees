@@ -242,11 +242,6 @@
 	path = modules/dev/devel_themer
 	branch = 7.x-1.x
 
-[subtree "modules/dev/elements"]
-	url = https://github.com/drupalprojects/elements.git
-	path = modules/dev/elements
-	branch = 7.x-1.x
-
 [subtree "modules/dev/ktools"]
 	url = https://github.com/drupal-rain/ktools.git
 	path = modules/dev/ktools
