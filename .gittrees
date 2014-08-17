@@ -171,3 +171,7 @@
 	url = https://github.com/drupalprojects/strongarm.git
 	path = modules/base/strongarm
 	branch = 7.x-2.x
+[subtree "modules/base/token"]
+	url = https://github.com/drupalprojects/token.git
+	path = modules/base/token
+	branch = 7.x-1.5
