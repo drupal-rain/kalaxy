@@ -147,3 +147,7 @@
 	url = https://github.com/drupalprojects/redirect.git
 	path = modules/base/redirect
 	branch = 7.x-1.x
+[subtree "modules/base/relation"]
+	url = https://github.com/drupalprojects/relation.git
+	path = modules/base/relation
+	branch = 7.x-1.x
