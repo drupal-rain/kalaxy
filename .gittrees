@@ -211,3 +211,7 @@
 	url = https://github.com/drupalprojects/multiupload_filefield_widget.git
 	path = modules/common/multiupload_filefield_widget
 	branch = 7.x-1.13
+[subtree "modules/common/multiupload_imagefield_widget"]
+	url = https://github.com/drupalprojects/multiupload_imagefield_widget.git
+	path = modules/common/multiupload_imagefield_widget
+	branch = 7.x-1.3
