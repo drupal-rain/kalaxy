@@ -276,3 +276,7 @@
 	path = themes/admin/shiny
 	branch = 7.x-1.x
 
+[subtree "modules/feature/topic"]
+	url = https://github.com/drupal-rain/topic.git
+	path = modules/feature/topic
+	branch = 7.x-1.x
