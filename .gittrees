@@ -207,3 +207,7 @@
 	path = modules/dev/schema
 	branch = 7.x-1.x
 
+[subtree "modules/common/multiupload_filefield_widget"]
+	url = https://github.com/drupalprojects/multiupload_filefield_widget.git
+	path = modules/common/multiupload_filefield_widget
+	branch = 7.x-1.13
