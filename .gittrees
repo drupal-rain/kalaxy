@@ -179,3 +179,7 @@
 	url = https://github.com/drupalprojects/url.git
 	path = modules/base/url
 	branch = 7.x-1.x
+[subtree "modules/base/views"]
+	url = https://github.com/drupalprojects/views.git
+	path = modules/base/views
+	branch = 7.x-3.8
