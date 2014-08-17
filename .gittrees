@@ -243,3 +243,7 @@
 	url = https://github.com/drupalprojects/taxonomy_manager.git
 	path = modules/common/taxonomy_manager
 	branch = 7.x-1.0
+[subtree "modules/common/views_tree"]
+	url = https://github.com/drupalprojects/views_tree.git
+	path = modules/common/views_tree
+	branch = 7.x-2.x
