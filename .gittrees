@@ -219,3 +219,7 @@
 	url = https://github.com/drupalprojects/entityreference_autocomplete.git
 	path = modules/common/entityreference_autocomplete
 	branch = 7.x-1.5
+[subtree "modules/common/field_conditional_state"]
+	url = https://github.com/drupalprojects/field_conditional_state.git
+	path = modules/common/field_conditional_state
+	branch = 7.x-2.0
