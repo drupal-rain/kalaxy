@@ -262,3 +262,10 @@
 	path = modules/dev/schema
 	branch = 7.x-1.x
 
+###############################################################################
+# themes/admin
+
+[subtree "themes/admin/shiny"]
+	url = https://github.com/drupalprojects/shiny.git
+	path = themes/admin/shiny
+	branch = 7.x-1.x
