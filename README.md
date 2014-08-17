@@ -40,6 +40,11 @@ Common modules to construct a website.
 Usually blindly put modules that are over 10k usage in here.
 Or the very useful ones.
 
+| Module                                                | Branch  |
+| ------------------------------------------------------| ------- |
+| [elements](https://drupal.org/project/elements)       | 7.x-1.x |
+| [subpathauto](https://drupal.org/project/subpathauto) | 7.x-1.x |
+
 ## Extra
 Modules that are useful in some specific situations.
 
@@ -49,16 +54,17 @@ Feature modules.
 ## Dev
 Highly related to developer usage(only).
 
-* [backup_migrate-7.x-3.x](https://drupal.org/project/backup_migrate)
-* [devel-7.x-1.x](https://drupal.org/project/devel)
-* [devel_themer-7.x-1.x](https://drupal.org/project/devel_themer)
-* [elements-7.x-1.x](https://drupal.org/project/elements)
-* [ktools-7.x-1.x](https://github.com/drupal-rain/ktools)
-* [registry_rebuild-7.x-2.x](https://drupal.org/project/registry_rebuild)
-* [schema-7.x-1.x](https://drupal.org/project/schema)
+| Module                                                          | Branch  |
+| --------------------------------------------------------------- | ------- |
+| [backup_migrate](https://drupal.org/project/backup_migrate)     | 7.x-3.x |
+| [devel](https://drupal.org/project/devel)                       | 7.x-1.x |
+| [devel_themer](https://drupal.org/project/devel_themer)         | 7.x-1.x |
+| [ktools](https://github.com/drupal-rain/ktools)                 | 7.x-1.x |
+| [registry_rebuild](https://drupal.org/project/registry_rebuild) | 7.x-2.x |
+| [schema](https://drupal.org/project/schema)                     | 7.x-1.x |
 
 # Themes
-* admin
+* [admin](#admin)
 
 ## Admin
 * [shiny](https://drupal.org/project/shiny)

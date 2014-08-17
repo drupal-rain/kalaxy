@@ -204,6 +204,11 @@
 	path = modules/common/multiform
 	branch = 7.x-1.1
 
+[subtree "modules/common/subpathauto"]
+	url = https://github.com/drupalprojects/subpathauto.git
+	path = modules/common/subpathauto
+	branch = 7.x-1.x
+
 [subtree "modules/common/taxonomy_manager"]
 	url = https://github.com/drupalprojects/taxonomy_manager.git
 	path = modules/common/taxonomy_manager
@@ -270,3 +275,4 @@
 	url = https://github.com/drupalprojects/shiny.git
 	path = themes/admin/shiny
 	branch = 7.x-1.x
+
