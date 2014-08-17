@@ -223,3 +223,7 @@
 	url = https://github.com/drupalprojects/field_conditional_state.git
 	path = modules/common/field_conditional_state
 	branch = 7.x-2.0
+[subtree "modules/common/filefield_paths"]
+	url = https://github.com/drupalprojects/filefield_paths.git
+	path = modules/common/filefield_paths
+	branch = 7.x-1.x
