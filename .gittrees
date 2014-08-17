@@ -95,3 +95,7 @@
 
 
 
+[subtree "modules/base/field_group"]
+	url = https://github.com/drupalprojects/field_group.git
+	path = modules/base/field_group
+	branch = 7.x-1.4
