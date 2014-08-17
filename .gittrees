@@ -231,3 +231,7 @@
 	url = https://github.com/drupalprojects/filefield_sources.git
 	path = modules/common/filefield_sources
 	branch = 7.x-1.9
+[subtree "modules/common/media_browser_plus"]
+	url = https://github.com/drupalprojects/media_browser_plus.git
+	path = modules/common/media_browser_plus
+	branch = 7.x-3.x
