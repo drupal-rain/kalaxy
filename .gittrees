@@ -103,3 +103,7 @@
 	url = https://github.com/drupalprojects/file_entity.git
 	path = modules/base/file_entity
 	branch = 7.x-2.x
+[subtree "modules/base/globalredirect"]
+	url = https://github.com/drupalprojects/globalredirect.git
+	path = modules/base/globalredirect
+	branch = 7.x-1.x
