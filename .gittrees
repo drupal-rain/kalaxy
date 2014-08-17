@@ -5,6 +5,11 @@
 	url = https://github.com/drupalprojects/admin_menu.git
 	path = modules/base/admin_menu
 	branch = 7.x-3.x
+
+[subtree "modules/base/ds"]
+	url = https://github.com/drupalprojects/ds.git
+	path = modules/base/ds
+	branch = 7.x-2.x
     
 [subtree "modules/base/ctools"]
 	url = https://github.com/drupalprojects/ctools.git
@@ -62,3 +67,4 @@
 	url = https://github.com/drupalprojects/schema.git
 	path = modules/dev/schema
 	branch = 7.x-1.x
+
