@@ -41,6 +41,11 @@
 	path = modules/base/features
 	branch = 7.x-2.2
 
+[subtree "modules/base/field_collection"]
+	url = https://github.com/drupalprojects/field_collection.git
+	path = modules/base/field_collection
+	branch = 7.x-1.x
+
 ###############################################################################
 # modules/common
 
@@ -87,5 +92,6 @@
 	url = https://github.com/drupalprojects/schema.git
 	path = modules/dev/schema
 	branch = 7.x-1.x
+
 
 
