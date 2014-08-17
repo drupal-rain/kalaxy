@@ -36,6 +36,11 @@
 	path = modules/base/entityreference
 	branch = 7.x-1.1
 
+[subtree "modules/base/features"]
+	url = https://github.com/drupalprojects/features.git
+	path = modules/base/features
+	branch = 7.x-2.2
+
 ###############################################################################
 # modules/common
 
@@ -82,4 +87,5 @@
 	url = https://github.com/drupalprojects/schema.git
 	path = modules/dev/schema
 	branch = 7.x-1.x
+
 
