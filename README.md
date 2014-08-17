@@ -24,7 +24,7 @@ Component
 ## Base
 Base modules to construct a website.
 Usually blindly put modules that are over 100k usage in here.
-* [admin_menu](https://drupal.org/project/admin_menu)
+* [admin_menu](https://drupal.org/project/admin_menu) | 7.x-3.x
 * [ctools](https://drupal.org/project/ctools)
 * [ds](https://drupal.org/project/ds)
 * [eck](https://drupal.org/project/eck)
