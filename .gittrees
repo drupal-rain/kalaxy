@@ -135,3 +135,7 @@
 	url = https://github.com/drupalprojects/og.git
 	path = modules/base/og
 	branch = 7.x-2.7
+[subtree "modules/base/pathauto"]
+	url = https://github.com/drupalprojects/pathauto.git
+	path = modules/base/pathauto
+	branch = 7.x-1.x
