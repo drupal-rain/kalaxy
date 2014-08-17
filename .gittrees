@@ -143,3 +143,7 @@
 	url = https://github.com/drupalprojects/pathologic.git
 	path = modules/base/pathologic
 	branch = 7.x-2.12
+[subtree "modules/base/redirect"]
+	url = https://github.com/drupalprojects/redirect.git
+	path = modules/base/redirect
+	branch = 7.x-1.x
