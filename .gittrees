@@ -127,3 +127,7 @@
 	url = https://github.com/drupalprojects/module_filter.git
 	path = modules/base/module_filter
 	branch = 7.x-2.x
+[subtree "modules/base/name"]
+	url = https://github.com/drupalprojects/name.git
+	path = modules/base/name
+	branch = 7.x-1.x
