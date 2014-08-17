@@ -167,3 +167,7 @@
 	url = https://github.com/drupalprojects/simplehtmldom.git
 	path = modules/base/simplehtmldom
 	branch = 7.x-2.1
+[subtree "modules/base/strongarm"]
+	url = https://github.com/drupalprojects/strongarm.git
+	path = modules/base/strongarm
+	branch = 7.x-2.x
