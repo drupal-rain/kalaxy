@@ -123,3 +123,7 @@
 	url = https://github.com/drupalprojects/media.git
 	path = modules/base/media
 	branch = 7.x-2.x
+[subtree "modules/base/module_filter"]
+	url = https://github.com/drupalprojects/module_filter.git
+	path = modules/base/module_filter
+	branch = 7.x-2.x
