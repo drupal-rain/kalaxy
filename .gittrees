@@ -107,3 +107,7 @@
 	url = https://github.com/drupalprojects/globalredirect.git
 	path = modules/base/globalredirect
 	branch = 7.x-1.x
+[subtree "modules/base/libraries"]
+	url = https://github.com/drupalprojects/libraries.git
+	path = modules/base/libraries
+	branch = 7.x-2.2
