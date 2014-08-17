@@ -139,3 +139,7 @@
 	url = https://github.com/drupalprojects/pathauto.git
 	path = modules/base/pathauto
 	branch = 7.x-1.x
+[subtree "modules/base/pathologic"]
+	url = https://github.com/drupalprojects/pathologic.git
+	path = modules/base/pathologic
+	branch = 7.x-2.12
