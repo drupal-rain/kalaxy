@@ -227,3 +227,7 @@
 	url = https://github.com/drupalprojects/filefield_paths.git
 	path = modules/common/filefield_paths
 	branch = 7.x-1.x
+[subtree "modules/common/filefield_sources"]
+	url = https://github.com/drupalprojects/filefield_sources.git
+	path = modules/common/filefield_sources
+	branch = 7.x-1.9
