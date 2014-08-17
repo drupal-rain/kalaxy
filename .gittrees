@@ -111,3 +111,7 @@
 	url = https://github.com/drupalprojects/libraries.git
 	path = modules/base/libraries
 	branch = 7.x-2.2
+[subtree "modules/base/link"]
+	url = https://github.com/drupalprojects/link.git
+	path = modules/base/link
+	branch = 7.x-1.x
