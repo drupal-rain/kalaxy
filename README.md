@@ -2,6 +2,11 @@ Information
 ===========
 A Drupal installation profile.
 
+Tools
+-----
+* [git-subtree](https://github.com/git/git/tree/master/contrib/subtree)
+* 
+
 Blueprint
 =========
 
