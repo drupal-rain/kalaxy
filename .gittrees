@@ -160,6 +160,7 @@
 	url = https://github.com/drupalprojects/views_bulk_operations.git
 	path = modules/base/views_bulk_operations
 	branch = 7.x-3.x
+
 ###############################################################################
 # modules/common
 
@@ -240,6 +241,11 @@
 [subtree "modules/dev/devel_themer"]
 	url = https://github.com/drupalprojects/devel_themer.git
 	path = modules/dev/devel_themer
+	branch = 7.x-1.x
+
+[subtree "modules/common/elements"]
+	url = https://github.com/drupalprojects/elements.git
+	path = modules/common/elements
 	branch = 7.x-1.x
 
 [subtree "modules/dev/ktools"]
