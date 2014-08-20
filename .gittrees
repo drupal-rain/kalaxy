@@ -329,3 +329,11 @@
 	url = https://github.com/drupalprojects/shiny.git
 	path = themes/admin/shiny
 	branch = 7.x-1.x
+[subtree "modules/common/select_or_other"]
+	url = https://github.com/drupalprojects/select_or_other.git
+	path = modules/common/select_or_other
+	branch = 7.x-3.x
+[subtree "modules/common/field_tools"]
+	url = https://github.com/drupalprojects/field_tools.git
+	path = modules/common/field_tools
+	branch = 7.x-1.x
