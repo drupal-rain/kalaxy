@@ -337,3 +337,7 @@
 	url = https://github.com/drupalprojects/field_tools.git
 	path = modules/common/field_tools
 	branch = 7.x-1.x
+[subtree "modules/base/safeword"]
+	url = https://github.com/drupalprojects/safeword.git
+	path = modules/base/safeword
+	branch = 7.x-1.x
