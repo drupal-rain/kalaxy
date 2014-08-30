@@ -51,6 +51,11 @@
 	path = modules/base/features
 	branch = 7.x-2.2
 
+[subtree "modules/base/features_override"]
+	url = https://github.com/drupalprojects/features_override.git
+	path = modules/base/features_override
+	branch = 7.x-2.x
+
 [subtree "modules/base/field_collection"]
 	url = https://github.com/drupalprojects/field_collection.git
 	path = modules/base/field_collection
