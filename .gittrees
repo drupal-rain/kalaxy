@@ -86,6 +86,11 @@
 	path = modules/base/globalredirect
 	branch = 7.x-1.x
 
+[subtree "modules/base/inline_entity_form"]
+	url = https://github.com/drupalprojects/inline_entity_form.git
+	path = modules/base/inline_entity_form
+	branch = 7.x-1.x
+
 [subtree "modules/base/libraries"]
 	url = https://github.com/drupalprojects/libraries.git
 	path = modules/base/libraries
