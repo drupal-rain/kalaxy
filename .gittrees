@@ -171,6 +171,11 @@
 	path = modules/base/strongarm
 	branch = 7.x-2.x
 
+[subtree "modules/base/term_reference_tree"]
+	url = https://github.com/drupalprojects/term_reference_tree.git
+	path = modules/base/term_reference_tree
+	branch = 7.x-1.x
+
 [subtree "modules/base/token"]
 	url = https://github.com/drupalprojects/token.git
 	path = modules/base/token
