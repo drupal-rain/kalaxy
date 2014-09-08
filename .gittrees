@@ -186,6 +186,11 @@
 	path = modules/base/url
 	branch = 7.x-1.x
 
+[subtree "modules/base/variable"]
+	url = https://github.com/drupalprojects/variable.git
+	path = modules/base/variable
+	branch = 7.x-2.x
+
 [subtree "modules/base/views"]
 	url = https://github.com/drupalprojects/views.git
 	path = modules/base/views
