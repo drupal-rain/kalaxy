@@ -96,6 +96,11 @@
 	path = modules/base/inline_entity_form
 	branch = 7.x-1.x
 
+[subtree "modules/dev/ktools"]
+	url = https://github.com/drupal-rain/ktools.git
+	path = modules/dev/ktools
+	branch = 7.x-1.x
+
 [subtree "modules/base/libraries"]
 	url = https://github.com/drupalprojects/libraries.git
 	path = modules/base/libraries
@@ -376,11 +381,6 @@
 [subtree "modules/dev/form_builder"]
 	url = https://github.com/drupalprojects/form_builder.git
 	path = modules/dev/form_builder
-	branch = 7.x-1.x
-
-[subtree "modules/dev/ktools"]
-	url = https://github.com/drupal-rain/ktools.git
-	path = modules/dev/ktools
 	branch = 7.x-1.x
 
 [subtree "modules/dev/registry_rebuild"]
