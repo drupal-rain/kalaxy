@@ -41,6 +41,11 @@
 	path = modules/base/eck
 	branch = 7.x-2.x
 
+[subtree "modules/base/eck_extras"]
+	url = https://github.com/drupal-rain/eck_extras.git
+	path = modules/base/eck_extras
+	branch = 7.x-2.x
+
 [subtree "modules/base/entity"]
 	url = https://github.com/drupalprojects/entity.git
 	path = modules/base/entity
