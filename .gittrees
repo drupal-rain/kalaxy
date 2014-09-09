@@ -96,9 +96,9 @@
 	path = modules/base/inline_entity_form
 	branch = 7.x-1.x
 
-[subtree "modules/dev/ktools"]
+[subtree "modules/base/ktools"]
 	url = https://github.com/drupal-rain/ktools.git
-	path = modules/dev/ktools
+	path = modules/base/ktools
 	branch = 7.x-1.x
 
 [subtree "modules/base/libraries"]
