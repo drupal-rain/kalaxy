@@ -126,6 +126,11 @@
 	path = modules/base/og
 	branch = 7.x-2.7
 
+[subtree "modules/base/panelizer"]
+	url = https://github.com/drupalprojects/panelizer.git
+	path = modules/base/panelizer
+	branch = 7.x-3.x
+
 [subtree "modules/base/panels"]
 	url = https://github.com/drupalprojects/panels.git
 	path = modules/base/panels
