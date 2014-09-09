@@ -146,6 +146,11 @@
 	path = modules/base/pathologic
 	branch = 7.x-2.12
 
+[subtree "modules/base/pm_existing_pages"]
+	url = https://github.com/drupalprojects/pm_existing_pages.git
+	path = modules/base/pm_existing_pages
+	branch = 7.x-1.x
+
 [subtree "modules/base/redirect"]
 	url = https://github.com/drupalprojects/redirect.git
 	path = modules/base/redirect
