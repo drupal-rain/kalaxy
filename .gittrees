@@ -126,6 +126,11 @@
 	path = modules/base/og
 	branch = 7.x-2.7
 
+[subtree "modules/base/panels"]
+	url = https://github.com/drupalprojects/panels.git
+	path = modules/base/panels
+	branch = 7.x-3.x
+
 [subtree "modules/base/pathauto"]
 	url = https://github.com/drupalprojects/pathauto.git
 	path = modules/base/pathauto
