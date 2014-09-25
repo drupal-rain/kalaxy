@@ -394,6 +394,14 @@
 	branch = 7.x-1.x
 
 ###############################################################################
+# themes    
+
+[subtree "themes/kalatheme"]
+	url = https://github.com/drupalprojects/kalatheme.git
+	path = themes/kalatheme
+	branch = 7.x-3.x
+
+###############################################################################
 # themes/admin
 
 [subtree "themes/admin/shiny"]
