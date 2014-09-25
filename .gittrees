@@ -151,6 +151,11 @@
 	path = modules/base/panels
 	branch = 7.x-3.x
 
+[subtree "modules/base/panopoly_theme"]
+	url = https://github.com/drupalprojects/panopoly_theme.git
+	path = modules/base/panopoly_theme
+	branch = 7.x-1.x
+
 [subtree "modules/base/pathauto"]
 	url = https://github.com/drupalprojects/pathauto.git
 	path = modules/base/pathauto
