@@ -81,11 +81,6 @@
 	path = modules/base/field_group
 	branch = 7.x-1.4
 
-[subtree "modules/base/fieldable_panels_panes"]
-	url = https://github.com/drupal-issue/fieldable_panels_panes.git
-	path = modules/base/fieldable_panels_panes
-	branch = 2227675
-
 [subtree "modules/base/file_entity"]
 	url = https://github.com/drupalprojects/file_entity.git
 	path = modules/base/file_entity
@@ -333,34 +328,6 @@
 # modules/extra
 
 ###############################################################################
-# modules/feature
-
-[subtree "modules/feature/kfield"]
-	url = https://github.com/drupal-rain/kfield.git
-	path = modules/feature/kfield
-	branch = 7.x-1.x
-
-[subtree "modules/feature/knews"]
-	url = https://github.com/drupal-rain/knews.git
-	path = modules/feature/knews
-	branch = 7.x-1.x
-
-[subtree "modules/feature/kpage"]
-	url = https://github.com/drupal-rain/kpage.git
-	path = modules/feature/kpage
-	branch = 7.x-1.x
-
-[subtree "modules/feature/ktopic"]
-	url = https://github.com/drupal-rain/ktopic.git
-	path = modules/feature/ktopic
-	branch = 7.x-1.x
-
-[subtree "modules/feature/ktopic_review"]
-	url = https://github.com/drupal-rain/ktopic_review.git
-	path = modules/feature/ktopic_review
-	branch = 7.x-1.x
-
-###############################################################################
 # modules/dev
 
 [subtree "modules/dev/advanced_help"]
@@ -404,17 +371,14 @@
 	branch = 7.x-1.x
 
 ###############################################################################
+# modules/keatures
+
+
+
+###############################################################################
 # themes    
 
 [subtree "themes/kalatheme"]
 	url = https://github.com/drupalprojects/kalatheme.git
 	path = themes/kalatheme
 	branch = 7.x-3.x
-
-###############################################################################
-# themes/admin
-
-[subtree "themes/admin/shiny"]
-	url = https://github.com/drupalprojects/shiny.git
-	path = themes/admin/shiny
-	branch = 7.x-1.x
