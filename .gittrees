@@ -401,3 +401,7 @@
 	url = https://github.com/drupal-rain/kore.git
 	path = modules/keatures/kore
 	branch = 7.x-1.x
+[subtree "modules/keatures/kfield"]
+	url = https://github.com/drupal-rain/kfield.git
+	path = modules/keatures/kfield
+	branch = 7.x-1.x
