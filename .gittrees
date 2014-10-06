@@ -382,3 +382,7 @@
 	url = https://github.com/drupalprojects/kalatheme.git
 	path = themes/kalatheme
 	branch = 7.x-3.x
+[subtree "themes/shiny"]
+	url = https://github.com/drupalprojects/shiny.git
+	path = themes/shiny
+	branch = 7.x-1.x
