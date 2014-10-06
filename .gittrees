@@ -81,6 +81,11 @@
 	path = modules/base/field_group
 	branch = 7.x-1.4
 
+[subtree "modules/base/fieldable_panels_panes"]
+	url = https://github.com/drupal-issue/fieldable_panels_panes.git
+	path = modules/base/fieldable_panels_panes
+	branch = 2227675
+
 [subtree "modules/base/file_entity"]
 	url = https://github.com/drupalprojects/file_entity.git
 	path = modules/base/file_entity
