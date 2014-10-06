@@ -425,3 +425,7 @@
 	url = https://github.com/drupalprojects/tao.git
 	path = themes/tao
 	branch = 7.x-3.x
+[subtree "modules/common/affilink"]
+	url = https://github.com/drupal-rain/affilink.git
+	path = modules/common/affilink
+	branch = 7.x-1.x
