@@ -409,3 +409,7 @@
 	url = https://github.com/drupal-rain/knews.git
 	path = modules/keatures/knews
 	branch = 7.x-1.x
+[subtree "modules/keatures/ktopic"]
+	url = https://github.com/drupal-rain/ktopic.git
+	path = modules/keatures/ktopic
+	branch = 7.x-1.x
