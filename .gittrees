@@ -187,9 +187,9 @@
 	branch = 7.x-2.7
 
 [subtree "modules/base/safeword"]
-	url = https://github.com/drupalprojects/safeword.git
+	url = https://github.com/drupal-issue/safeword.git
 	path = modules/base/safeword
-	branch = 7.x-1.x
+	branch = 2342103
 
 [subtree "modules/base/serial"]
 	url = https://github.com/drupalprojects/serial.git
@@ -249,6 +249,11 @@
 ###############################################################################
 # modules/common
 
+[subtree "modules/common/affilink"]
+	url = https://github.com/drupal-rain/affilink.git
+	path = modules/common/affilink
+	branch = 7.x-1.x
+
 [subtree "modules/common/crumbs"]
 	url = https://github.com/drupalprojects/crumbs.git
 	path = modules/common/crumbs
@@ -305,9 +310,9 @@
 	branch = 7.x-3.x
 
 [subtree "modules/common/subpathauto"]
-	url = https://github.com/drupalprojects/subpathauto.git
+	url = https://github.com/drupal-issue/subpathauto.git
 	path = modules/common/subpathauto
-	branch = 7.x-1.x
+	branch = 1814516
 
 [subtree "modules/common/taxonomy_manager"]
 	url = https://github.com/drupalprojects/taxonomy_manager.git
@@ -425,7 +430,3 @@
 	url = https://github.com/drupalprojects/tao.git
 	path = themes/tao
 	branch = 7.x-3.x
-[subtree "modules/common/affilink"]
-	url = https://github.com/drupal-rain/affilink.git
-	path = modules/common/affilink
-	branch = 7.x-1.x
