@@ -1,6 +1,6 @@
 <div class="<?php print $classes; ?>"<?php print $attributes; ?>>
-  <?php if ($title): ?>
+  <?php if (!empty($title)): ?>
     <?php print "<$tag>$title</$tag>"; ?>
   <?php endif; ?>
-  <?php print $fields; ?>
+  <?php print render($posts); ?>
 </div>
