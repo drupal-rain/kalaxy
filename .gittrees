@@ -176,6 +176,11 @@
 	path = modules/base/pathologic
 	branch = 7.x-2.12
 
+[subtree "modules/base/picture"]
+	url = https://github.com/drupalprojects/picture.git
+	path = modules/base/picture
+	branch = 7.x-2.x
+
 [subtree "modules/base/pm_existing_pages"]
 	url = https://github.com/drupalprojects/pm_existing_pages.git
 	path = modules/base/pm_existing_pages
@@ -440,3 +445,4 @@
 	url = https://github.com/drupalprojects/tao.git
 	path = themes/tao
 	branch = 7.x-3.x
+
