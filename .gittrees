@@ -452,3 +452,7 @@
 	branch = 7.x-3.x
 
 
+[subtree "modules/base/ckeditor"]
+	url = https://github.com/drupalprojects/ckeditor.git
+	path = modules/base/ckeditor
+	branch = 7.x-1.x
