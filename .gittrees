@@ -171,6 +171,11 @@
 	path = modules/base/options_element
 	branch = 7.x-1.x
 
+[subtree "modules/base/owlcarousel"]
+	url = https://github.com/drupalprojects/owl-carousel.git
+	path = modules/base/owlcarousel
+	branch = 7.x-1.x
+
 [subtree "modules/base/panelizer"]
 	url = https://github.com/drupalprojects/panelizer.git
 	path = modules/base/panelizer
@@ -495,4 +500,3 @@
 	url = https://github.com/drupalprojects/tao.git
 	path = themes/tao
 	branch = 7.x-3.x
-
