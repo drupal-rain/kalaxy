@@ -319,6 +319,11 @@
 	path = modules/common/field_conditional_state
 	branch = 7.x-2.0
 
+[subtree "modules/common/field_formatter_settings"]
+	url = https://github.com/drupalprojects/field_formatter_settings.git
+	path = modules/common/field_formatter_settings
+	branch = 7.x-1.x
+
 [subtree "modules/common/field_tools"]
 	url = https://github.com/drupalprojects/field_tools.git
 	path = modules/common/field_tools
@@ -490,5 +495,4 @@
 	url = https://github.com/drupalprojects/tao.git
 	path = themes/tao
 	branch = 7.x-3.x
-
 
