@@ -237,9 +237,9 @@
 	branch = 7.x-2.7
 
 [subtree "modules/base/safeword"]
-	url = https://github.com/drupal-issue/safeword.git
+	url = https://github.com/drupal-fork/safeword.git
 	path = modules/base/safeword
-	branch = 2342103
+	branch = fork1
 
 [subtree "modules/base/serial"]
 	url = https://github.com/drupalprojects/serial.git
