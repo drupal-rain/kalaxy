@@ -11,6 +11,11 @@
 	path = modules/base/admin_menu
 	branch = 7.x-3.x
 
+[subtree "modules/base/breakpoints"]
+	url = https://github.com/drupalprojects/breakpoints.git
+	path = modules/base/breakpoints
+	branch = 7.x-1.x
+
 [subtree "modules/base/context"]
 	url = https://github.com/drupalprojects/context.git
 	path = modules/base/context
