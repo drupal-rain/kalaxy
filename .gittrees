@@ -31,6 +31,11 @@
 	path = modules/base/cool
 	branch = 7.x-1.x
 
+[subtree "modules/base/countries"]
+	url = https://github.com/drupalprojects/countries.git
+	path = modules/base/countries
+	branch = 7.x-2.x
+
 [subtree "modules/base/ctools"]
 	url = https://github.com/drupalprojects/ctools.git
 	path = modules/base/ctools
