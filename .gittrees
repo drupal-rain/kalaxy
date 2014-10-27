@@ -531,3 +531,7 @@
 	path = themes/tao
 	branch = 7.x-3.x
 
+[subtree "modules/common/views_term_hierarchy_weight_field"]
+	url = https://github.com/drupalprojects/views_term_hierarchy_weight_field.git
+	path = modules/common/views_term_hierarchy_weight_field
+	branch = 7.x-1.x
