@@ -41,6 +41,11 @@
 	path = modules/base/ctools
 	branch = 7.x-1.x
 
+[subtree "modules/base/currency"]
+	url = https://github.com/drupalprojects/currency.git
+	path = modules/base/currency
+	branch = 7.x-2.x
+
 [subtree "modules/base/date"]
 	url = https://github.com/drupalprojects/date.git
 	path = modules/base/date
