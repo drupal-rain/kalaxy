@@ -221,6 +221,11 @@
 	path = modules/base/simplehtmldom
 	branch = 7.x-2.1
 
+[subtree "modules/base/smartcrop"]
+	url = https://github.com/drupalprojects/smartcrop.git
+	path = modules/base/smartcrop
+	branch = 7.x-1.x
+
 [subtree "modules/base/strongarm"]
 	url = https://github.com/drupalprojects/strongarm.git
 	path = modules/base/strongarm
@@ -445,4 +450,5 @@
 	url = https://github.com/drupalprojects/tao.git
 	path = themes/tao
 	branch = 7.x-3.x
+
 
