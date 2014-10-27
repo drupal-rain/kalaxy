@@ -96,6 +96,11 @@
 	path = modules/base/features_override
 	branch = 7.x-2.x
 
+[subtree "modules/base/fieldable_panels_panes"]
+	url = https://github.com/drupal-issue/fieldable_panels_panes.git
+	path = modules/base/fieldable_panels_panes
+	branch = 2227675
+
 [subtree "modules/base/field_collection"]
 	url = https://github.com/drupalprojects/field_collection.git
 	path = modules/base/field_collection
@@ -510,4 +515,5 @@
 	url = https://github.com/drupalprojects/tao.git
 	path = themes/tao
 	branch = 7.x-3.x
+
 
