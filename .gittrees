@@ -186,6 +186,11 @@
 	path = modules/base/pathologic
 	branch = 7.x-2.12
 
+[subtree "modules/base/phone"]
+	url = https://github.com/drupalprojects/phone.git
+	path = modules/base/phone
+	branch = 7.x-1.x
+
 [subtree "modules/base/picture"]
 	url = https://github.com/drupalprojects/picture.git
 	path = modules/base/picture
@@ -470,4 +475,5 @@
 	url = https://github.com/drupalprojects/tao.git
 	path = themes/tao
 	branch = 7.x-3.x
+
 
