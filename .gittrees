@@ -191,6 +191,11 @@
 	path = modules/base/panels
 	branch = 7.x-3.x
 
+[subtree "modules/base/panels_bootstrap_styles"]
+	url = https://github.com/drupal-issue/panels_bootstrap_styles.git
+	path = modules/base/panels_bootstrap_styles
+	branch = 2361905
+    
 [subtree "modules/base/panopoly_theme"]
 	url = https://github.com/drupalprojects/panopoly_theme.git
 	path = modules/base/panopoly_theme
@@ -505,4 +510,3 @@
 	url = https://github.com/drupalprojects/tao.git
 	path = themes/tao
 	branch = 7.x-3.x
-
