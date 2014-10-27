@@ -136,6 +136,11 @@
 	path = modules/base/media
 	branch = 7.x-2.x
 
+[subtree "modules/base/media_oembed"]
+	url = https://github.com/drupalprojects/media_oembed.git
+	path = modules/base/media_oembed
+	branch = 7.x-2.x
+
 [subtree "modules/base/module_filter"]
 	url = https://github.com/drupalprojects/module_filter.git
 	path = modules/base/module_filter
@@ -465,3 +470,4 @@
 	url = https://github.com/drupalprojects/tao.git
 	path = themes/tao
 	branch = 7.x-3.x
+
