@@ -56,6 +56,11 @@
 	path = modules/base/date
 	branch = 7.x-2.x
 
+[subtree "modules/base/double_field"]
+	url = https://github.com/drupalprojects/double_field.git
+	path = modules/base/double_field
+	branch = 7.x-2.x
+
 [subtree "modules/base/ds"]
 	url = https://github.com/drupalprojects/ds.git
 	path = modules/base/ds
@@ -515,5 +520,4 @@
 	url = https://github.com/drupalprojects/tao.git
 	path = themes/tao
 	branch = 7.x-3.x
-
 
