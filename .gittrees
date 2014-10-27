@@ -301,6 +301,11 @@
 	path = modules/base/views
 	branch = 7.x-3.8
 
+[subtree "modules/base/views_bootstrap"]
+	url = https://github.com/drupalprojects/views_bootstrap.git
+	path = modules/base/views_bootstrap
+	branch = 7.x-3.x
+
 [subtree "modules/base/views_bulk_operations"]
 	url = https://github.com/drupalprojects/views_bulk_operations.git
 	path = modules/base/views_bulk_operations
