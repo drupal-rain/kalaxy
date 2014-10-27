@@ -319,6 +319,11 @@
 	path = modules/common/multiform
 	branch = 7.x-1.1
 
+[subtree "modules/common/multiple_value_widget"]
+	url = https://github.com/drupalprojects/multiple_value_widget.git
+	path = modules/common/multiple_value_widget
+	branch = 7.x-1.x
+
 [subtree "modules/common/multiupload_filefield_widget"]
 	url = https://github.com/drupalprojects/multiupload_filefield_widget.git
 	path = modules/common/multiupload_filefield_widget
@@ -460,4 +465,3 @@
 	url = https://github.com/drupalprojects/tao.git
 	path = themes/tao
 	branch = 7.x-3.x
-
