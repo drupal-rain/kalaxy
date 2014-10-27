@@ -11,6 +11,11 @@
 	path = modules/base/admin_menu
 	branch = 7.x-3.x
 
+[subtree "modules/base/bootstrap_library"]
+	url = https://github.com/drupalprojects/bootstrap_library.git
+	path = modules/base/bootstrap_library
+	branch = 7.x-1.x
+
 [subtree "modules/base/breakpoints"]
 	url = https://github.com/drupalprojects/breakpoints.git
 	path = modules/base/breakpoints
@@ -500,3 +505,4 @@
 	url = https://github.com/drupalprojects/tao.git
 	path = themes/tao
 	branch = 7.x-3.x
+
