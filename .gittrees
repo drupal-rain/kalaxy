@@ -16,6 +16,11 @@
 	path = modules/base/breakpoints
 	branch = 7.x-1.x
 
+[subtree "modules/base/ckeditor"]
+	url = https://github.com/drupalprojects/ckeditor.git
+	path = modules/base/ckeditor
+	branch = 7.x-1.x
+
 [subtree "modules/base/context"]
 	url = https://github.com/drupalprojects/context.git
 	path = modules/base/context
@@ -431,6 +436,11 @@
 ###############################################################################
 # themes    
 
+[subtree "themes/kala"]
+	url = https://github.com/drupal-rain/kala.git
+	path = themes/kala
+	branch = 7.x-1.x
+
 [subtree "themes/kalatheme"]
 	url = https://github.com/drupalprojects/kalatheme.git
 	path = themes/kalatheme
@@ -451,8 +461,3 @@
 	path = themes/tao
 	branch = 7.x-3.x
 
-
-[subtree "modules/base/ckeditor"]
-	url = https://github.com/drupalprojects/ckeditor.git
-	path = modules/base/ckeditor
-	branch = 7.x-1.x
