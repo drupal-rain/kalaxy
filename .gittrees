@@ -516,6 +516,11 @@
 ###############################################################################
 # themes    
 
+[subtree "themes/adminimal_theme"]
+	url = http://git.drupal.org/project/adminimal_theme.git
+	path = themes/adminimal_theme
+	branch = 7.x-1.x
+
 [subtree "themes/kala"]
 	url = https://github.com/drupal-rain/kala.git
 	path = themes/kala
