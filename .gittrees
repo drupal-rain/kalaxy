@@ -545,3 +545,7 @@
 	url = https://github.com/drupalprojects/tao.git
 	path = themes/tao
 	branch = 7.x-3.x
+[subtree "modules/base/ko"]
+	url = https://github.com/drupal-rain/ko.git
+	path = modules/base/ko
+	branch = 7.x-1.x
