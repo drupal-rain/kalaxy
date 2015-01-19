@@ -48,15 +48,11 @@
 /*
 $vars = array(
   'type' => 'image',
-  'fid' => 0,
-  'path' => '',
-  'width' => '',
-  'height' => '',
-  'alt' => '',
-  'title' => '',
+  'file' => '',
   'attributes' => '',
   // image_style
   'style_name' => '',
+  // Link wrapper
   'link' => array(
     'path' => '',
     'language' => '',
@@ -73,21 +69,14 @@ $vars = array(
 );
 */
 
-function theme_kore_image($vars) {
+/**
+ * Theme function for 'img'.
+ */
+function theme_img($vars) {
   $output = NULL;
 
-  $type = $vars['type'];
-  switch ($type) {
-    case 'image':
-      $output = theme('image', $vars);
-      break;
-    case 'image_style':
-      $output = theme('image_style', $vars);
-      break;
-    case 'picture':
-      $output = theme('picture', $vars);
-      break;
-  }
+  // $vars['type'] is another real theme registry.
+  $output = theme($vars['type'], $vars);
 
   // Wrap it with link.
   if (isset($vars['link'])) {
@@ -102,14 +91,14 @@ function theme_kore_image($vars) {
   return $output;
 }
 
-function template_preprocess_kore_image(&$vars) {
-  // Allow to only pass in fid.
-  if (empty($vars['path'])) {
-    $file = file_load($vars['fid']);
-    $vars['path'] = $file->uri;
+/**
+ * Implements template_preprocess_REGISTRY().
+ */
+function template_preprocess_img(&$vars) {
+  // Allow fid or file object.
+  if (is_numeric($vars['file'])) {
+    $vars['file'] = file_load($vars['file']);
   }
-  // @todo Allow pass file object as 'item'.
-  // @todo Allow pass file path as 'item'.
 
   // Default 'type' is set to 'image' in theme registry already.
   // Auto upgrade to iamge_style if style_name is set.
@@ -131,7 +120,7 @@ function template_preprocess_kore_image(&$vars) {
     unset($picture['picture_mapping']);
     unset($picture['fallback_image_style']);
     $vars += array(
-      'uri' => $vars['path'],
+      'uri' => $vars['file']->uri,
       'breakpoints' => $breakpoint_styles,
     );
     $vars += $picture;
@@ -139,6 +128,6 @@ function template_preprocess_kore_image(&$vars) {
 
   // Responsive
   if ($vars['responsive']) {
-    $vars['attributes']['class'] = 'img-responsive';
+    $vars['attributes']['class'] = 'img-responsive'; // @todo Steal it from Bootstrap
   }
 }
