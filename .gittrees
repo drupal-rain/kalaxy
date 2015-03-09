@@ -106,8 +106,8 @@
 [subtree "modules/base/entity"]
 	url = https://github.com/drupalprojects/entity.git
 	path = modules/base/entity
-	branch = 7.x-1.5
-	version = 7.x-1.x-dev
+	branch = 7.x-1.6
+	version = 7.x-1.6
 
 [subtree "modules/base/entitycache"]
 	url = https://github.com/drupalprojects/entitycache.git

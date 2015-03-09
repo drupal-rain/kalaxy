@@ -410,6 +410,7 @@ function ckeditor_load_plugins($render = FALSE) {
         'default' => 'f'
       );
     }
+
   }
   else {
     $_editor_url = ckeditor_path('url');
