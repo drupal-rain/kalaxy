@@ -92,10 +92,10 @@
 	version = 7.x-2.x-dev
 
 [subtree "modules/base/eck"]
-	url = https://github.com/drupal-fork/eck.git
+	url = https://github.com/drupalprojects/eck.git
 	path = modules/base/eck
-	branch = fork1
-	version = 7.x-2.x-dev
+	branch = 7.x-3.x
+	version = 7.x-3.x-dev
 
 [subtree "modules/base/eck_extras"]
 	url = https://github.com/drupal-rain/eck_extras.git
