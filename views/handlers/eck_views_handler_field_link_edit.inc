@@ -4,19 +4,14 @@
  * Field handler to present a link to editt the entity content.
  */
 
+// @codingStandardsIgnoreStart
 class eck_views_handler_field_link_edit extends eck_views_handler_field_link {
 
   function render_link($entity, $values) {
     $entity_type = $entity->entityType();
     $bundle = $entity->bundle();
     $action = "edit";
-    if (eck__multiple_access_check(
-      array(
-        "eck administer entities",
-        "eck {$action} entities",
-        "eck administer {$entity_type} {$bundle} entities",
-        "eck {$action} {$entity_type} {$bundle} entities"))) {
-
+    if (eck_access('update', 'entity', $entity)) {
       $crud_info = get_bundle_crud_info($entity_type, $bundle);
       $this->options['alter']['make_link'] = TRUE;
       $this->options['alter']['path'] = str_replace('%eckentity', $entity->id, $crud_info['edit']['path']);
@@ -27,3 +22,4 @@ class eck_views_handler_field_link_edit extends eck_views_handler_field_link {
     }
   }
 }
+// @codingStandardsIgnoreEnd

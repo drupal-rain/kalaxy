@@ -36,6 +36,135 @@ function hook_eck_entity_type_delete(EntityType $entity_type) {
 }
 
 /**
+ * Defines ECK property widget types.
+ *
+ * @return array
+ *   An array of widget type definitions. The individual keys are the widget
+ *   types. Each definition is an array with the following optional keys:"
+ *
+ *     'label': The human readable name of the widget type.
+ *     'property types': The ECK property types that the widget applies to. i.e.
+ *                       text, integer, decimal, positive_integer, language.
+ *     'settings': An array of the default settings for the widget if it has any
+ *                 settings.
+ *     'file': A file that should be included when processing widget forms. This
+ *             file may contain all of the ECK property widget api hooks. For
+ *             example defining the widget settings forms and the widget forms.
+ *     'file type': The type of file for the 'file' above. Default is 'inc'.
+ *     'description': Description to use as help text for property widget
+ *                    selection.
+ *     'value callback': The name of a callback function to use for processing
+ *                       the value returned by the widget before saving. See
+ *                       eck_property_widget_extract_value().
+ */
+function hook_eck_property_widget_info() {
+  // Define a simple text widget type.
+  $widget_types = array(
+    'text' => array(
+      'label' => t('Text'),
+      'settings' => array('size' => 60, 'max_length' => 255),
+      'property types' => array('text'),
+      'file' => 'eck.property_widgets',
+    ),
+  );
+  return $widget_types;
+}
+
+/**
+ * Alters the widget type info returned by hook_eck_property_widget_info().
+ */
+function hook_eck_property_widget_info_alter(&$widget_types) {
+  // Change the label on the text widget type.
+  $widget_types['text']['label'] = t('Property text box');
+  // Add a newly defined property type to the allowed property types for the
+  // text widget.
+  $widget_types['text']['property types'] += array('mycoolnewpropertytype');
+}
+
+/**
+ * Callback to retrieve the form elements for a module's property widget.
+ *
+ * This same hook will be called for every property widget type
+ * defined by a given module.
+ *
+ * This callback operates very similar to that of Drupal's field api hooks.
+ *
+ * The form may be altered using hook_eck_property_widget_form() and
+ * hook_eck_property_widget_WIDGET_TYPE_form().
+ *
+ * @param array $form
+ *   A reference to the parent form. Could be the entity form, the widget
+ *   settings form, etc.
+ * @param array $form_state
+ *   A reference to the current state of the form.
+ * @param string $property_name
+ *   The machine name of the property for which to retreive the widget form.
+ * @param array $bundle_property_config
+ *   The bundle's configuration setting stored for the property. Contains all of
+ *   the widget's settings and default info for the property.
+ * @param string $langcode
+ *   The current language.
+ * @param mixed $value
+ *   The property's current value to use in the widget.
+ * @param array $element
+ *   The form element to use for the property widget. Default info included.
+ *
+ * @return array
+ *   the form element for a particular widget.
+ *
+ * @see eck_eck_property_widget_info()
+ * @see hook_eck_property_widget_form()
+ * @see hook_eck_property_widget_settings_form()
+ * @see hook_eck_property_widget_form()
+ * @see hook_eck_property_widget_WIDGET_TYPE_form()
+ */
+function hook_eck_property_widget_form(&$form, &$form_state, $property_name, $bundle_property_config, $langcode, $value, $element) {
+  if ($bundle_property_config['widget']['type'] == 'text') {
+    $element += array(
+      '#type' => 'textfield',
+      '#default_value' => isset($value) ? $value : NULL,
+      '#size' => $bundle_property_config['widget']['settings']['size'],
+      '#maxlength' => $bundle_property_config['widget']['settings']['max_length'],
+      '#attributes' => array('class' => array('text-full')),
+    );
+  }
+  return $element;
+}
+
+/**
+ * Alters the property widget form. Called for the specific WIDGET_TYPE widget.
+ *
+ * @param array $element
+ *   A reference to the property widget's form element.
+ * @param array $form_state
+ *   A reference to the current state of the form.
+ * @param array $context
+ *   An array containing contextual information:
+ *     'form': the parent form. Could be the entity form, the widget
+ *             settings form, etc.
+ *     'property_name': The machine name of the property for which to retreive
+ *                      the widget form.
+ *     'bundle_property_config': The bundle's configuration setting stored for
+ *                               the property. Contains all of the widget's
+ *                               settings and default info for the property.
+ *     'langcode': The current language.
+ *     'value': The property's current value to use in the widget.
+ */
+function hook_eck_property_widget_WIDGET_TYPE_form(&$element, $form_state, $context) {
+}
+
+/**
+ * Property types.
+ */
+function hook_eck_property_types() {
+  $property_types['property_type_machine_name'] = array(
+    'class' => "PropertyTypeClass",
+  );
+
+  return $property_types;
+}
+
+/**
  * Defines default properties.
  *
  * A default property shows up in the property select list when a user is
@@ -85,25 +214,12 @@ function hook_eck_entity_label($entity, $entity_id) {
 }
 
 /**
- * Define new property types.
- *
- * This hook is useless without also using
- * hook_eck_property_type_schema_alter().
- *
- * @return array
- *   An array with a machine name and a label for a new property type.
- */
-function hook_eck_property_types() {
-  return array("email" => t("Email"));
-}
-
-/**
  * Give the schema for your custom properties.
  *
  * @param array $schema
- *   A schema array.
+ *   A field schema definition.
  * @param string $type
- *   The property type.
+ *   A string.
  */
 function hook_eck_property_type_schema_alter(&$schema, $type) {
   if ($type == 'email') {

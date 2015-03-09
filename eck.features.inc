@@ -123,6 +123,7 @@ function eck_entity_type_features_rebuild($module) {
 
       $entity_type->save();
     }
+    variable_set('eck_clear_caches', TRUE);
   }
 }
 
@@ -233,6 +234,10 @@ function eck_bundle_features_rebuild($module) {
       }
       $bundle->save();
     }
+    Bundle::loadAll(NULL, TRUE);
+    drupal_get_schema(NULL, TRUE);
+    entity_info_cache_clear();
+    variable_set('menu_rebuild_needed', TRUE);
   }
 }
 

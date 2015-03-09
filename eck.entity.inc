@@ -11,25 +11,18 @@ function eck__entity__menu($entity_type, $bundle) {
   $path = eck__entity_type__path();
   $menu = array();
 
-  // DELETE Bundles.
+  // DELETE Bundle.
   $menu["{$path}/{$entity_type->name}/{$bundle->name}/delete"] = array(
     'title' => "Delete",
     'page callback' => "drupal_get_form",
     'page arguments' => array('eck__bundle__delete_form', 3, 4),
-    'access callback' => 'eck__multiple_access_check',
-    'access arguments' => array(
-      array(
-        'eck administer bundles',
-        'eck delete bundles',
-        "eck administer {$entity_type->name} bundles",
-        "eck delete {$entity_type->name} bundles",
-      ),
-    ),
+    'access callback' => 'eck_access',
+    'access arguments' => array('delete', 'bundle', $entity_type),
     'file' => 'eck.bundle.inc',
     'type' => MENU_LOCAL_TASK,
   );
 
-  // EDIT Bundles.
+  // EDIT Bundle.
   $menu["{$path}/{$entity_type->name}/{$bundle->name}/edit"] = array(
     'title' => 'Edit',
     'page callback' => 'drupal_get_form',
@@ -38,36 +31,75 @@ function eck__entity__menu($entity_type, $bundle) {
       $entity_type->name,
       $bundle->name,
     ),
-    'access callback' => 'eck__multiple_access_check',
-    'access arguments' => array(
-      array(
-        'eck administer bundles',
-        'eck edit bundles',
-        "eck administer {$entity_type->name} bundles",
-        "eck edit {$entity_type->name} bundles",
-      ),
-    ),
+    'access callback' => 'eck_access',
+    'access arguments' => array('update', 'bundle', $bundle),
     'file' => 'eck.bundle.inc',
     'type' => MENU_LOCAL_TASK,
   );
 
+  // Managing a bundle's properties as extra fields.
+  $menu["{$path}/{$entity_type->name}/{$bundle->name}/properties/%"] = array(
+    'title arguments' => array(6),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array(
+      'eck__manage_extra_field_form',
+      $entity_type->name,
+      $bundle->name,
+      6,
+    ),
+    'access callback' => 'eck_access',
+    'access arguments' => array('update', 'bundle', $bundle),
+    'file' => 'eck.bundle.inc',
+  );
+
+  $menu["{$path}/{$entity_type->name}/{$bundle->name}/properties/%/edit"] = array(
+    'title' => 'Edit',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'weight' => 0,
+  );
+
+  $menu["{$path}/{$entity_type->name}/{$bundle->name}/properties/%/widget-type"] = array(
+    'title' => 'Widget Type',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array(
+      'eck__extra_field_widget_form',
+      $entity_type->name,
+      $bundle->name,
+      6,
+    ),
+    'access callback' => 'eck_access',
+    'access arguments' => array('update', 'bundle', $bundle),
+    'file' => 'eck.bundle.inc',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 5,
+  );
+
+  $menu["{$path}/{$entity_type->name}/{$bundle->name}/properties/%/remove"] = array(
+    'title' => 'Remove',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array(
+      'eck__remove_extra_field_form',
+      $entity_type->name,
+      $bundle->name,
+      6,
+    ),
+    'access callback' => 'eck_access',
+    'access arguments' => array('update', 'bundle', $bundle),
+    'file' => 'eck.bundle.inc',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 10,
+  );
+
   $admin_info = get_bundle_admin_info($entity_type->name, $bundle->name);
 
-  // LIST Entities.
+  // OVERVIEW Entity.
   $menu[$admin_info['path']] = array(
     'title' => "{$bundle->label}",
     'description' => "View all entites of type {$entity_type->label} with bundle {$bundle->label}",
     'page callback' => "eck__entity__list",
     'page arguments' => array($entity_type->name, $bundle->name),
-    'access callback' => 'eck__multiple_access_check',
-    'access arguments' => array(
-      array(
-        'eck administer entities',
-        "eck list entities",
-        "eck administer {$entity_type->name} {$bundle->name} entities",
-        "eck list {$entity_type->name} {$bundle->name} entities",
-      ),
-    ),
+    'access callback' => 'eck_access',
+    'access arguments' => array('list', 'entity', $bundle),
     'weight' => 0,
     'file' => 'eck.entity.inc',
   );
@@ -81,15 +113,35 @@ function eck__entity__menu($entity_type, $bundle) {
   $crud_info = get_bundle_crud_info($entity_type->name, $bundle->name);
 
   foreach ($crud_info as $action => $info) {
+
+    switch ($action) {
+      case 'add':
+        $perm_op = 'create';
+        break;
+
+      case 'edit':
+        $perm_op = 'update';
+        break;
+
+      default:
+        $perm_op = $action;
+        break;
+    }
+
+    $perm_args = array($perm_op, 'entity');
+
     $action_label = ucfirst($action);
     $args = array();
 
     if (array_key_exists('entity_id', $info)) {
       $args[] = $info['entity_id'];
+      $perm_args[] = $info['entity_id'];
+    }
+    else {
+      $perm_args[] = $bundle;
     }
 
     $args = array_merge(array($entity_type->name, $bundle->name), $args);
-    $access_args = array_merge(array($action), $args);
 
     $menu[$info['path']] = array(
       'title' => "{$action_label} {$bundle->label}",
@@ -97,39 +149,18 @@ function eck__entity__menu($entity_type, $bundle) {
       'page callback' => "eck__entity__{$action}",
       'page arguments' => $args,
       'load arguments' => array($entity_type->name),
-      'access callback' => 'eck__entity_menu_access',
-      'access arguments' => $access_args,
+      'access callback' => 'eck_access',
+      'access arguments' => $perm_args,
       'file' => 'eck.entity.inc',
     );
 
     if ($action == 'view') {
+
       $menu[$info['path'] . "/view"] = array(
         'title' => "View",
         'type' => MENU_DEFAULT_LOCAL_TASK,
         'weight' => 0,
       );
-
-      $weight = 1;
-      foreach ($crud_info as $a => $i) {
-        if ($a != 'view' && $a != 'add' && $a != "list") {
-          $al = ucfirst($a);
-          $view_path = $info['path'] . "/{$a}";
-          $access_args = array_merge(array($a), $args);
-          $menu[$view_path] = array(
-            'title' => "{$al}",
-            'description' => "{$action_label} an entity of type {$entity_type->label} with bundle {$bundle->label}",
-            'page callback' => "eck__entity__{$a}",
-            'page arguments' => $args,
-            'access callback' => 'eck__entity_menu_access',
-            'access arguments' => $access_args,
-            'file' => 'eck.entity.inc',
-            'type' => MENU_LOCAL_TASK,
-            'context' => (MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE),
-            'weight' => $weight,
-          );
-          $weight++;
-        }
-      }
     }
   }
 
@@ -193,24 +224,23 @@ function eck__entity__list($entity_type_name, $bundle_name) {
   $crud_info = get_bundle_crud_info($entity_type->name, $bundle->name);
 
   // Check that the user has permissions to add an entity:
-  if (eck__entity_menu_access('add', $entity_type->name, $bundle->name)) {
-    $build['add'] = array(
-      '#markup' => "+ " . l(t("Add @bundle_label", array("@bundle_label" => $bundle->label)), $crud_info['add']['path'],
-         array('query' => $destination)),
+  if (eck_access('create', 'entity') || eck_access('create', 'entity', $bundle)) {
+    $build['actions'] = array(
+      '#theme' => 'links',
+      '#links' => array(
+        array(
+          'title' => t("Add") . " $bundle->label",
+          'href' => $crud_info['add']['path'],
+          'query' => $destination,
+        ),
+      ),
+      '#attributes' => array(
+        'class' => array('action-links'),
+      ),
     );
   }
 
-  // Check that the user has permissions to view entity lists:
-  $check_array = array(
-    'eck administer entities',
-    'eck list entities',
-    "eck administer {$entity_type->name} {$bundle->name} entities",
-    "eck list {$entity_type->name} {$bundle->name} entities",
-  );
-  if (eck__multiple_access_check($check_array)) {
-    $build['table'] = entity_table($entities, TRUE);
-  }
-
+  $build['table'] = entity_table($entities, TRUE);
   $build['pager'] = array('#theme' => 'pager');
 
   return $build;
@@ -234,23 +264,15 @@ function eck__entity__add($entity_type_name, $bundle_name) {
 
 /**
  * Get the entities view.
- *
- * @param string $entity_type
- *   entity type
- * @param mixed $id
- *   The entity id or the entity object itself
- *   Normally you wouldn't need to call this function if you already have the
- *   loaded entity but there are some workflows where an object is passed.
- *   So this function handles that case as well.
  */
-function eck__entity__build($entity_type, $bundle, $id) {
+function eck__entity__build($entity_type, $bundle, $id, $view_mode = "full") {
 
   if (is_object($id) && $id->entityType() == $entity_type->name && $id->bundle() == $bundle->name) {
-    return $id->view();
+    return $id->view($view_mode);
   }
   elseif (is_numeric($id)) {
     $entity = entity_load_single($entity_type->name, $id);
-    return $entity->view();
+    return $entity->view($view_mode);
   }
 
   drupal_not_found();
@@ -271,6 +293,7 @@ function eck__entity__edit($entity_type_name, $bundle_name, $id) {
   if (is_numeric($id)) {
     $entity = entity_load_single($entity_type_name, $id);
   }
+
   elseif (is_object($id) and $id->entityType() === $entity_type_name) {
     $entity = $id;
   }
@@ -346,37 +369,84 @@ function eck__entity__form($form, &$form_state, $entity) {
     '#value' => $entity,
   );
 
-  // Property Widget Handling through property_info by entity api.
+  // Property Widget Handling.
+  $entity_type = entity_type_load($entity->entityType());
+  $bundle = bundle_load($entity_type->name, $entity->type);
   $property_info = entity_get_property_info($entity->entityType());
+  $language = LANGUAGE_NONE;
+  if (function_exists("entity_language")) {
+    $language = entity_language($entity_type->name, $entity);
+  }
+
   $properties = array();
-  $found_widget = FALSE;
-  foreach ($property_info['properties'] as $pname => $pi) {
-    if (array_key_exists('widget', $pi)) {
-      $widget_callback = $pi['widget'];
-      $widget = $widget_callback($entity);
-      $properties[$pname] = $widget_callback;
-      $form[$pname] = $widget_callback($entity);
-      $found_widget = TRUE;
+
+  foreach ($entity_type->properties as $property_name => $info) {
+    if (empty($bundle->config['extra_fields'][$property_name]['form'])) {
+      continue;
+    }
+
+    $bundle_property_config = $bundle->config['extra_fields'][$property_name]['form'];
+    $widget_type = eck_property_info_widget_types($bundle_property_config['widget']['type']);
+
+    // Get the default value for this property.
+    $value = NULL;
+    if (isset($entity->{$property_name})) {
+      $value = $entity->{$property_name};
+    }
+    elseif (isset($bundle_property_config['default_value_function'])) {
+      $value = $bundle_property_config['default_value_function']($entity_type, $bundle, $entity);
+    }
+    elseif ($bundle_property_config['default_value']) {
+      $value = $bundle_property_config['default_value'];
+    }
+
+    // Include external module file dependency if one is required.
+    if (function_exists('drupal_get_path') && $widget_type['file']) {
+      form_load_include($form_state, $widget_type['file type'], $widget_type['module'], $widget_type['file']);
+    }
+
+    $function = $widget_type['module'] . '_eck_property_widget_form';
+    if (function_exists($function)) {
+      $element = array(
+        '#entity' => $entity,
+        '#entity_type' => $entity_type,
+        '#bundle' => $bundle,
+        '#property_name' => $property_name,
+        '#widget_type' => $widget_type,
+        '#language' => LANGUAGE_NONE,
+        '#title' => check_plain($bundle_property_config['label']),
+        '#description' => field_filter_xss($bundle_property_config['description']),
+        '#required' => (!empty($bundle_property_config['required'])),
+      );
+      // Call the widget's form hook and load the widget form element.
+      if ($element = $function($form, $form_state, $property_name, $bundle_property_config, $language, $value, $element)) {
+        // Allow modules to alter the property widget form element.
+        $context = array(
+          'form' => $form,
+          'property_name' => $property_name,
+          'bundle_property_config' => $bundle->config['extra_fields'][$property_name],
+          'langcode' => LANGUAGE_NONE,
+          'value' => $value,
+        );
+        drupal_alter(array('eck_property_widget_form', 'eck_property_widget_' . $bundle_property_config['widget']['type'] . '_form'), $element, $form_state, $context);
+      }
+      $properties[$property_name] = $element;
     }
   }
 
-  if (!$found_widget) {
-    // If there was no widget given through the property_info array, we look for
-    // a widget in the property behaviors implemented.
-    $entity_type = $entity->entityType();
-    $entity_type = EntityType::loadByName($entity_type);
+  // Check the property behaviors for widgets too.
+  // @todo Can probably integrate this with the widget hooks and do away
+  // with this.
+  $vars = array('entity' => $entity);
+  $vars += $property_info;
 
-    $vars = array('entity' => $entity);
-    $vars += $property_info;
-
-    $widgets = eck_property_behavior_invoke_plugin($entity_type, 'default_widget', $vars);
-
-    foreach ($widgets as $property => $widget) {
-      $form[$property] = $widget;
-    }
+  // Add the property forms to the entity form.
+  if (!empty($properties)) {
+    $form += $properties;
   }
 
-  $form['submit'] = array(
+  $form['actions'] = array('#type' => 'actions');
+  $form['actions']['submit'] = array(
     '#type' => 'submit',
     '#weight' => 10000,
     '#value' => t('Save'),
@@ -393,6 +463,35 @@ function eck__entity__form($form, &$form_state, $entity) {
 function eck__entity__form_validate($form, &$state) {
   $entity = $state['values']['entity'];
   field_attach_form_validate($entity->entityType(), $entity, $form, $state);
+
+  // Lets validate our properties by trying to set them.
+  $entity_type_name = $entity->entityType();
+  $entity_type = EntityType::loadByName($entity_type_name);
+  $properties = $entity_type->properties;
+
+  // If we find a value set for a property lets just set it.
+  foreach ($properties as $property => $info) {
+    $form_value = _eck_form_property_value($state, $property);
+
+    if (isset($form_value)) {
+
+      // @todo This should be a widget hook not a behavior function.
+      $vars = array('data' => $form_value);
+      $data = eck_property_behavior_invoke_plugin($entity_type, 'pre_set', $vars);
+
+      if (array_key_exists($property, $data)) {
+        $form_value = $data[$property];
+      }
+
+      try{
+        $entity->{$property} = $form_value;
+      }
+      catch(Exception $e) {
+        // If there was an exception lets set up the proper for error.
+        form_set_error($property, "Invalid property value {$form_value}, value should be of type {$info['type']}");
+      }
+    }
+  }
 }
 
 /**
@@ -403,36 +502,7 @@ function eck__entity__form_submit($form, &$state) {
 
   field_attach_submit($entity->entityType(), $entity, $form, $state);
 
-  $entity_type = $entity->entityType();
-  $entity_type = EntityType::loadByName($entity_type);
-  $properties = $entity_type->properties;
-
-  $wrapper = NULL;
-  // If we find a value set for a property lets just set it.
-  foreach ($properties as $property => $info) {
-    $form_value = _eck_form_property_value($state, $property);
-
-    if (isset($form_value)) {
-      // @todo maybe we should do this in the form validation step.
-      // that way we can catch entity wrapper validation exceptions
-      // and set a form error message appropiately.
-
-      // Lets give the behavior a chance to manipulate the data
-      // before it is set.
-      $vars = array('data' => $form_value);
-      $data = eck_property_behavior_invoke_plugin($entity_type, 'pre_set', $vars);
-
-      if (array_key_exists($property, $data)) {
-        $form_value = $data[$property];
-      }
-
-      if (!$wrapper) {
-        $wrapper = entity_metadata_wrapper($entity_type->name, $entity);
-      }
-
-      $wrapper->{$property}->set($form_value);
-    }
-  }
+  $entity_type = EntityType::loadByName($entity->entityType());
 
   // Let the behaviors modify the entity.
   // @todo Why do we need to pass form information to the save behavior.
@@ -450,7 +520,7 @@ function eck__entity__form_submit($form, &$state) {
       "@entity_label" => entity_label($form['#entity_type'], $entity),
     )));
 
-  $uri = eck__entity__uri($entity);
+  $uri = entity_uri($entity->entityType(), $entity);
   $state['redirect'] = $uri['path'];
 }
 
@@ -478,27 +548,39 @@ function eck__entity__view($entity_type_name, $bundle_name, $id) {
     $entity = entity_load_single($entity_type_name, $id);
   }
 
-  $entity_type = entity_type_load($entity_type_name);
-  $properties = $entity_type->properties;
-  $bundle = bundle_load($entity_type_name, $bundle_name);
+  return entity_view($entity_type_name, array($entity));
+}
 
+/**
+ * Entity view callback.
+ */
+function eck__entity__view_callback($entities, $view_mode = 'full', $langcode = NULL) {
   $build = array();
-  $entity_view = eck__entity__build($entity_type, $bundle, $id);
-  $property_view = array();
 
-  $formatters = eck_property_behavior_invoke_plugin($entity_type, 'default_formatter',
-    array('entity' => $entity));
+  foreach ($entities as $entity) {
+    $entity_type_name = $entity->entityType();
+    $bundle_name = $entity->type;
 
-  foreach ($formatters as $property => $formatter) {
-    $property_view[$property] = $formatter;
+    $entity_type = entity_type_load($entity_type_name);
+    $bundle = bundle_load($entity_type_name, $bundle_name);
+
+    $entity_view = eck__entity__build($entity_type, $bundle, $entity, $view_mode);
+    $property_view = array();
+
+    $formatters = eck_property_behavior_invoke_plugin($entity_type, 'default_formatter',
+      array('entity' => $entity));
+
+    foreach ($formatters as $property => $formatter) {
+      $property_view[$property] = $formatter;
+    }
+
+    $entity_view = array_merge($property_view, $entity_view[$entity_type_name][$entity->id]);
+
+    eck_property_behavior_invoke_plugin($entity_type, 'entity_view',
+      array('entity' => $entity));
+
+    $build[$entity_type_name][$entity->id] = $entity_view;
   }
-
-  $entity_view[$entity->entityType()][$entity->id] = array_merge($property_view, $entity_view[$entity->entityType()][$entity->id]);
-
-  eck_property_behavior_invoke_plugin($entity_type, 'entity_view',
-    array('entity' => $entity));
-
-  $build["{$entity_type->name}_{$bundle->name}_page"] = $entity_view;
 
   return $build;
 }
