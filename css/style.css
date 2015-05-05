@@ -22,6 +22,12 @@ body.adminimal-theme *::-moz-focus-inner {
   border: 0;
 }
 
+body.adminimal-theme * {
+  -moz-box-sizing: inherit;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
 body {
   color: #000;
   background: #fff;
@@ -183,11 +189,6 @@ pre {
   white-space: pre-wrap;
 }
 
-strong {
-  font-family: Arial, Helvetica, sans-serif !important;
-  font-weight: bold !important;
-}
-
 /**
  * Skip link.
  */
@@ -310,52 +311,75 @@ strong {
  * Tabs.
  */
 ul.primary {
-  border-bottom: medium none;
-  float: right;
+  border-bottom: 0;
+  float: left;
+  clear: both;
   font-size: 0.923em;
-  height: 2.6em;
-  margin: 12px 0 0;
+  height: auto;
+  margin: 0;
   padding-top: 0;
-  text-transform: uppercase;
+  padding-left: 8px;
+  padding-right: 8px;
+  width: 100%;
+  background: #ebebeb;
+  display: table;
 }
 
 ul.primary li {
   float: left;/* LTR */
   list-style: none;
-  margin: 0 2px;
+  margin: 0;
+}
+
+#navigation ul.primary li:first-of-type {
+  margin-left: 10px;
+}
+
+#navigation ul.primary li:first-of-type.active {
+  margin-left: 20px;
 }
 
 ul.primary li a:link,ul.primary li a.active,ul.primary li a:active,ul.primary li a:visited,ul.primary li a:hover,ul.primary li.active a {
   display: block;
   float: left;/* LTR */
   line-height: 18px;
-  background-color: #a6a7a2;
-  color: #000;
   font-weight: normal;
-  border-width: 1px 1px 0 1px;
-  border-style: solid;
-  border-color: #a6a7a2;
-  font-family: "Open Sans", "Segoe UI", "Helvetica", sans-serif;
-  font-size: 16px;
-  font-weight: 300;
+  border: 0;
+  font-size: 15px;
+  font-weight: normal;
   margin: 0;
-  padding: 10px 20px;
-  text-transform: none;
+  padding: 10px 12px;
+  color: #797979;
+  background: transparent;
 }
 
 ul.primary li.active a,ul.primary li.active a.active,ul.primary li.active a:active,ul.primary li.active a:visited {
   background-color: #fff;
   border: none;
-  border-top: 5px solid #0074BD;
-  margin-top: -4px;
+  border-top: 3px solid #0074BD;
+  margin-top: -3px;
+  color: #333;
+  box-shadow: 0px 0px 3px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+ul.primary li.active a.active:after {
+  content: "";
+  display: block;
+  height: 5px;
+  left: 0px;
+  bottom: -5px;
+  width: 100%;
+  background: white;
+  position: absolute;
 }
 
 ul.primary li a:hover {
-  color: #fff;
+  color: #0074BD;
 }
 
 ul.primary li.active a:hover {
-  color: #000;
+  color: #333;
 }
 
 .tabs-secondary {
@@ -363,41 +387,52 @@ ul.primary li.active a:hover {
 }
 
 ul.secondary {
-  font-size: 0.923em;
-  padding: 0 3px 5px;
+  font-size: 1em;
+  padding: 0;
   line-height: 1.385em;
   overflow: hidden;
   background-color: #fff;
-  text-align: right;
   width: 100%;
 }
 
 ul.secondary li {
-  margin: 0 5px;
-  float: none;/* LTR */
+  float: left;/* LTR */
 }
 
 ul.secondary li a {
-  background-color: #ddd;
-  color: #000;
   display: inline-block;
+  color: #777;
+  border-bottom: 1px solid #EBEBEB;
 }
 
 ul.secondary li a,ul.secondary li a:hover,ul.secondary li.active a,ul.secondary li.active a.active {
   padding: 2px 10px;
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px;
-  border-radius: 7px;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
 }
 
 ul.secondary li a:hover,ul.secondary li.active a,ul.secondary li.active a.active {
-  color: #fff;
-  background: none repeat scroll 0% 0% #0074BD;
-  box-shadow: 0px -1px 0px #0074BD,0px 1px 0px #0074BD;
+  color: #0074BD;
+  background: transparent;
+  box-shadow: none;
+  border-color: #0074BD;
 }
 
 ul.secondary li a:hover {
 	box-shadow: none;
+}
+
+body.adminimal-theme ul.secondary li a, body.adminimal-theme ul.secondary li a:hover, body.adminimal-theme ul.secondary li.active a, body.adminimal-theme ul.secondary li.active a.active {
+  border-radius: 0;
+  padding: 10px 10px;
+}
+
+body.adminimal-theme ul.secondary li.active a, ul.secondary li.active a.active {
+  color: #000;
+  background-color: transparent;
+  box-shadow: none;
+  border-bottom: 1px solid #000;
 }
 
 div.vertical-tabs ul li.vertical-tab-button a {
@@ -435,9 +470,7 @@ div.vertical-tabs ul li.selected a:focus strong {
  * Page layout.
  */
 #page {
-  padding: 20px 0 40px 0;/* LTR */
-  margin-right: 40px;/* LTR */
-  margin-left: 40px;/* LTR */
+  padding: 20px 40px;
   background: #fff;
   position: relative;
   color: #333;
@@ -680,7 +713,7 @@ fieldset legend {
   font-size: 20px;
   font-weight: 300;
   margin: 0;
-  margin: 0 0 10px;
+  margin: 0px 0px 4px;
   line-height: 1.4;
   width: initial;
 }
@@ -748,7 +781,9 @@ ul.tips li {
 }
 
 body div.form-type-radio div.description,body div.form-type-checkbox div.description {
-  margin-left: 1.5em;/* LTR */
+  margin-left: 25px;/* LTR */
+  color: #949494;
+  margin-top: 0;
 }
 
 a.button:link,a.button:visited,a.button:hover,a.button:active {
@@ -769,6 +804,7 @@ input.form-autocomplete,input.form-text,input.form-file,textarea.form-textarea,s
   background: #fff;
   color: #333;
   vertical-align: baseline;
+  box-sizing: inherit;
 }
 
 /* Fix webkit select on OS X see issue #2351221 */
@@ -888,7 +924,7 @@ html.js .toggle-enable.disabled div {
 }
 
 html.js .toggle-enable div {
-  border-radius: 0 !important;  
+  border-radius: 0 !important;
   background: #fff;
 }
 
@@ -912,7 +948,9 @@ html.js .toggle-enable div:after, html.js .toggle-enable div:before {
 
 input.form-text:focus,input.form-file:focus,textarea.form-textarea:focus,select.form-select:focus {
   color: #000;
-  border-color: #0074BD;
+  border-color: #68A3CF;
+  outline: 2px solid #C1E0FF;
+  outline-offset: 0px;
 }
 
 html.js input.form-autocomplete {
@@ -924,9 +962,11 @@ html.js input.throbbing {
 }
 
 ul.action-links {
-  margin: 0 0 20px;
+  margin: 20px 0 42px;
   list-style-type: none;
-  overflow: hidden;
+  display: block;
+  list-style-type: none;
+  float: left;
 }
 
 ul.action-links li {
@@ -992,7 +1032,8 @@ div.admin-panel h3 {
 }
 
 .theme-selector h3 {
-  font-weight: normal;
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
 .theme-default h3 {
@@ -1499,12 +1540,6 @@ body div.status a {
   margin-top: 40px;
 }
 
-body.adminimal-theme ul.secondary li a, body.adminimal-theme ul.secondary li a:hover, body.adminimal-theme ul.secondary li.active a, body.adminimal-theme ul.secondary li.active a.active {
-  border-radius: 0;
-  padding: 2px 10px;
-  border: none;
-}
-
 body.adminimal-theme .views-ui-display-tab-bucket h3 {
   font-size: 20px;
   margin: 10px;
@@ -1517,225 +1552,6 @@ body.adminimal-theme .views-ui-display-tab-bucket:hover h3 {
 
 div.fieldset-description {
   padding-bottom: 0.5em;
-}
-
-/* Buttons */
-
-/* Gray Button */
-input.form-submit,
-a.button,
-div.exposed-filters input#edit-submit {
-  cursor: pointer;
-  background: #e3e3e3;
-  border: none;
-  border-radius: 0;
-  padding: 6px 10px;
-  margin-bottom: 1em;
-  margin-right: 1em;/* LTR */
-  color: #555;
-  text-align: center;
-  font-weight: normal;
-  font-size: 1.077em;
-  font-family: "Lucida Grande",Verdana,sans-serif;
-}
-
-input.form-submit:hover,
-a.button:hover,
-div.exposed-filters input#edit-submit:hover {
-  background: #0074BD;
-  color: #fff;
-}
-
-input.form-submit:active,
-a.button:active,
-div.exposed-filters input#edit-submit:active {
-  box-shadow: 0 2px 2px rgba(0,0,0,0.3) inset;
-}
-
-/* Green Button */
-input[type="submit"][id^="edit-submit"],
-input#edit-actions-submit,
-input[id^="save-continue"],
-input[type="submit"][id^="edit-save"],
-input#edit-save,
-input#edit-submit,
-input#edit-actions-save,
-#media-browser-page a.button-yes {
-  cursor: pointer;
-  border-radius: 0;
-  border: none;
-  padding: 6px 10px;
-  margin-bottom: 1em;
-  margin-right: 1em;/* LTR */
-  color: #fff;
-  text-align: center;
-  font-weight: normal;
-  font-size: 1.077em;
-  font-family: "Lucida Grande",Verdana,sans-serif;
-  background: #4d8f46;
-}
-
-input[type="submit"][id^="edit-submit"]:hover,
-input#edit-actions-submit:hover,
-input[id^="save-continue"]:hover,
-input[type="submit"][id^="edit-save"]:hover,
-input#edit-save:hover,
-input#edit-submit:hover,
-input#edit-actions-save:hover,
-#media-browser-page a.button-yes:hover {
-  background: #0a6700;
-  border-radius: 0;
-  border: none;
-  color: #fff;
-}
-
-input#edit-submit:active,
-input#edit-actions-submit:active,
-input[id^="save-continue"]:active,
-input[type="submit"][id^="edit-save"]:active,
-input#edit-save:active,
-input#edit-submit:active,
-input#edit-actions-save:active {
-  box-shadow: 0 2px 2px rgba(0,0,0,0.75) inset;
-  background: #333;
-  border-radius: 0;
-  border: none;
-  color: #fff;
-}
-
-/* Red Button */
-input#edit-delete,
-input#remove-button,
-input#edit-remove,
-input#edit-clear,
-a.button.remove,
-input[id$="remove-button"],
-.page-admin-modules-uninstall input#edit-submit {
-  cursor: pointer;
-  padding: 6px 10px;
-  border-radius: 0;
-  border: none;
-  margin-bottom: 1em;
-  margin-right: 1em;/* LTR */
-  color: #fff;
-  text-align: center;
-  font-weight: normal;
-  font-size: 1.077em;
-  font-family: "Lucida Grande",Verdana,sans-serif;
-  background: #b73939;
-}
-
-input#edit-delete:hover,
-input#remove-button:hover,
-input#edit-remove:hover,
-input#edit-clear:hover,
-a.button.remove:hover,
-input[id$="remove-button"]:hover,
-body.page-admin-modules-uninstall input#edit-submit:hover {
-  background: #990000;
-  border-radius: 0;
-  border: none;
-  color: #fff;
-}
-
-input#edit-delete:active,
-input#remove-button:active,
-input#edit-remove:active,
-input#edit-clear:active,
-input[id$="remove-button"]:active,
-body.page-admin-modules-uninstall input#edit-submit:active {
-  box-shadow: 0 2px 2px rgba(0,0,0,0.75) inset;
-  background: #333;
-  border-radius: 0;
-  border: none;
-  color: #fff;
-}
-
-/* Blue Button */
-input#edit-preview,
-input#edit-next,
-input#preview-submit,
-input[type="submit"][id^="edit-return"] {
-  cursor: pointer;
-  border-radius: 0;
-  border: none;
-  padding: 6px 10px;
-  margin-bottom: 1em;
-  margin-right: 1em;/* LTR */
-  color: #fff;
-  text-align: center;
-  font-weight: normal;
-  font-size: 1.077em;
-  font-family: "Lucida Grande",Verdana,sans-serif;
-  background: #0074BD;
-}
-
-input#edit-preview:hover,
-input#edit-next:hover,
-input#preview-submit:hover,
-input[type="submit"][id^="edit-return"]:hover {
-  background: #004c99;
-  border-radius: 0;
-  border: none;
-  color: #fff;
-}
-
-input#edit-preview:active,
-input#edit-next:active,
-input#preview-submit:active,
-input[type="submit"][id^="edit-return"]:active {
-  box-shadow: 0 2px 2px rgba(0,0,0,0.75) inset;
-  background: #333;
-  border-radius: 0;
-  border: none;
-  color: #fff;
-}
-
-/* Orange Button */
-#edit-cancel,
-#edit-actions-cancel,
-input#edit-buttons-revert,
-#media-browser-page a.button-no {
-  cursor: pointer;
-  border-radius: 0;
-  border: none;
-  padding: 6px 10px;
-  margin-bottom: 1em;
-  margin-right: 1em;/* LTR */
-  color: #fff;
-  text-align: center;
-  font-weight: normal;
-  font-size: 1.077em;
-  font-family: "Lucida Grande",Verdana,sans-serif;
-  background: #f69231;
-}
-
-a#edit-cancel,a#edit-actions-cancel {
-  padding: 6px 10px;
-  text-decoration: none;
-  border-radius: 0;
-  border: none;
-}
-
-#edit-cancel:hover,
-#edit-actions-cancel:hover,
-input#edit-buttons-revert:hover,
-#media-browser-page a.button-no:hover {
-  background: #ef6114;
-  text-decoration: none;
-  border-radius: 0;
-  border: none;
-  color: #fff;
-}
-
-#edit-cancel:active,
-#edit-actions-cancel:active,
-input#edit-buttons-revert:active {
-  box-shadow: 0 2px 2px rgba(0,0,0,0.75) inset;
-  background: #333;
-  border-radius: 0;
-  border: none;
-  color: #fff;
 }
 
 /* Configuration menu blocks */
@@ -1861,7 +1677,14 @@ body.adminimal-theme .token-tree th {
   font-family: "Open Sans", "Segoe UI", "Helvetica", sans-serif;
   font-size: 23px;
   font-weight: 300;
+  line-height: inherit;
+  margin-bottom: 0;
   padding: 0.25em 0;
+}
+
+.views-exposed-form .views-exposed-widget .form-submit {
+  /* Add top margin of 34px. */
+  margin-top: 2.429em;
 }
 
 /* Views and Ctools */
@@ -1940,14 +1763,6 @@ body.adminimal-theme .token-tree th {
   color: white;
 }
 
-/* Omega Fieldset fix */
-body.page-admin-appearance fieldset {
-  border: solid 1px #ddd !important;
-  border-top: 3px solid #0074BD !important;
-  padding: 12px !important;
-  margin: 18px 0 !important;
-}
-
 body.page-admin-appearance fieldset legend {
   background: white !important;
   padding: 0 3px !important;
@@ -1978,6 +1793,11 @@ body.page-admin-appearance fieldset fieldset {
   top: 5px;
 }
 
+.views-ui-dialog #views-ajax-title {
+  font-weight: normal;
+  text-align: center;
+}
+
 .views-ui-dialog .scroll {
   padding: 10px 20px;
 }
@@ -1993,6 +1813,10 @@ body.page-admin-appearance fieldset fieldset {
 
 .views-ui-dialog {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  padding-bottom: 10px;
+}
+.views-ui-dialog #views-ajax-popup {
+  padding-bottom: 10px;
 }
 
 .views-filterable-options .form-type-checkbox input.form-checkbox{
@@ -2096,14 +1920,6 @@ body.page-admin-dashboard .container-inline .form-actions, body.page-admin-dashb
   margin-top: 0;
 }
 
-/* Margin fix for some pages in overlay mode */
-body.page-admin-help.overlay #page,
-body.page-admin-reports-updates-update #page,
-body.page-admin-appearance.overlay #page {
-  margin: 0;
-  padding: 0 20px 20px;
-}
-
 .system-themes-list-disabled .theme-selector {
   display: inline-block;
   float: none;
@@ -2141,6 +1957,10 @@ body.page-admin-appearance.overlay #page {
 .system-themes-list-disabled {
   border-top: 5px solid #CDCDCD;
   padding-top: 20px;
+}
+
+.system-themes-list-disabled .theme-selector .screenshot, .system-themes-list-disabled .theme-selector .no-screenshot {
+  margin-bottom: 10px;
 }
 
 #block-system-main {
@@ -2193,14 +2013,33 @@ div.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.media-wrapper {
   color: #111;
 }
 
-.progress .bar {
+body.adminimal-theme .progress .bar {
   background: none repeat scroll 0 0 #CCCCCC;
   border: none;
   border-radius: 0;
-  margin: 0 0.2em;
+  margin: 0 0 0.5em 0;
 }
 
-.progress .filled, .progress .bar .filled {
+body.adminimal-theme .progress .percentage {
+  float: right;
+  font-size: 26px;
+  font-weight: 100;
+  line-height: 30px;
+}
+
+body.adminimal-theme .progress .filled {
+  -webkit-transition: 0.5s linear;
+  -moz-transition: 0.5s linear;
+  -o-transition: 0.5s linear;
+  transition: 0.5s linear;
+  -webkit-transition-property: width, background-color;
+  -moz-transition-property: width, background-color;
+  -o-transition-property: width, background-color;
+  transition-property: width, background-color;
+}
+
+body.adminimal-theme .progress .filled,
+body.adminimal-theme .progress .bar .filled {
   background: none repeat scroll 0 0 #0074BD !important;
 }
 
@@ -2233,6 +2072,9 @@ table.update tr.error td, table.update tr.error th {
 
 .form-textarea-wrapper textarea {
   resize:vertical;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 div.krumo-root {
@@ -2308,8 +2150,14 @@ body.adminimal-theme .cke_combo_off a.cke_combo_button:hover {
 
 body.adminimal-theme .cke_button_on {
   background: #fff;
-  box-shadow: none;
-  border-bottom: 3px solid #0074BD;
+  box-shadow: 0px 3px 0px #0074BD;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+body.adminimal-theme .cke_button_on:hover {
+  box-shadow: 0px 3px 0px #0074BD;
 }
 
 body.adminimal-theme .cke_bottom {
@@ -2323,8 +2171,14 @@ body.adminimal-theme .cke_combo_off a.cke_combo_button:active,body.adminimal-the
   box-shadow: none;
 }
 
-body.adminimal-theme a.cke_button_on:hover,body.adminimal-theme  a.cke_button_on:focus,body.adminimal-theme  a.cke_button_on:active {
-  box-shadow: none;
+body.adminimal-theme a.cke_button_on:hover,
+body.adminimal-theme a.cke_button_on:focus,
+body.adminimal-theme a.cke_button_on:active,
+body.adminimal-theme .cke_button:first-child,
+body.adminimal-theme .cke_button:last-child {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
 }
 
 body.adminimal-theme a.cke_button_off:hover,
@@ -2335,6 +2189,9 @@ body.adminimal-theme a.cke_button_disabled:active {
   background: #eee;
   box-shadow: none;
   border-color: #0074BD;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
 }
 
 body.adminimal-theme .cke_reset_all label {
@@ -2458,6 +2315,15 @@ body.adminimal-theme a.cke_dialog_ui_button_ok:hover {
   border-color: #0A6700;
 }
 
+body.adminimal-theme a.cke_path_item:hover, body.adminimal-theme a.cke_path_item:focus, body.adminimal-theme a.cke_path_item:active {
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  box-shadow: none;
+  text-decoration:none;
+  text-shadow: none;
+}
+
 .messages.theme-disabled {
   background: transparent;
   border: none;
@@ -2560,17 +2426,29 @@ body.adminimal-theme .views-displays .secondary a > .icon.add {
 }
 
 body.adminimal-theme #views-display-top #views-display-menu-tabs li.add .action-list {
-  top: 43px;
+  top: 42px;
   text-align: left;
+  width: auto;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.1);
 }
 
-body.adminimal-theme ul.secondary li.active a, ul.secondary li.active a.active {
-	color: #FFF;
-	background-color: #888;
-	box-shadow: 0px -1px 0px #888, 0px 1px 0px #888;
+body.adminimal-theme .views-displays .secondary .action-list li {
+  border: none;
+  clear: both;
 }
 
-body.adminimal-theme .views-display-top ul#views-display-menu-tabs li a:hover, 
+body.adminimal-theme .views-displays .secondary .action-list li.last  {
+  padding-bottom: 5px;
+}
+
+body.adminimal-theme .views-display-top ul#views-display-menu-tabs li a.active {
+  box-shadow: 0px 1px 0px #0073BC;
+  color: #0073BC;
+}
+
+body.adminimal-theme .views-display-top ul#views-display-menu-tabs li a:hover,
 body.adminimal-theme .views-display-top ul#views-display-menu-tabs li a:focus {
 	color: #FFF;
 	background-color: #0074BD;
@@ -2727,4 +2605,13 @@ body.adminimal-theme .custom_css_not_found .css_path {
 /* Fix SemanticViews module see #2340681 */
 body.page-admin-structure-views-view #views-ui-edit-display-form #edit-options #edit-style-options-row fieldset#edit-style-options-row--2 {
   float: left;
+}
+
+body.adminimal-theme #module-filter-update-status-form {
+  float: none;
+  text-align: center;
+}
+
+body.adminimal-theme #module-filter-update-status-form #edit-module-filter-show {
+  padding: 10px;
 }
